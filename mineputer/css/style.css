@@ -1,0 +1,35 @@
+:root {
+    --bg-primary: #1a1a1a; /* Dark mode */
+    --bg-secondary: #2d2d2d;
+    --accent: #00ff88;
+    --text: #ffffff;
+    --shadow: 5px 5px 10px rgba(0,0,0,0.3), -5px -5px 10px rgba(255,255,255,0.1);
+}
+[data-theme="light"] {
+    --bg-primary: #f0f0f0;
+    --bg-secondary: #e0e0e0;
+    --text: #000000;
+    --shadow: 5px 5px 10px rgba(0,0,0,0.1), -5px -5px 10px rgba(255,255,255,0.5);
+}
+body { margin: 0; font-family: 'Segoe UI', sans-serif; background: var(--bg-primary); color: var(--text); overflow: hidden; }
+.desktop { position: relative; height: 100vh; }
+#wallpaper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('../assets/wallpapers/default.jpg') center/cover; filter: blur(2px); }
+.dock { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; background: var(--bg-secondary); border-radius: 20px; padding: 10px; box-shadow: var(--shadow); backdrop-filter: blur(10px); }
+.app-icon { width: 50px; height: 50px; margin: 0 5px; cursor: pointer; border-radius: 10px; transition: transform 0.2s; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)); }
+.app-icon:hover { transform: scale(1.1); }
+.taskbar { position: fixed; top: 0; width: 100%; height: 40px; background: var(--bg-secondary); display: flex; align-items: center; padding: 0 10px; box-shadow: var(--shadow); }
+.start-menu { font-size: 18px; font-weight: bold; cursor: pointer; }
+.ai-chat { position: fixed; top: 50px; right: 10px; width: 300px; height: 400px; background: var(--bg-primary); border-radius: 10px; box-shadow: var(--shadow); padding: 10px; display: flex; flex-direction: column; }
+#ai-output { flex: 1; overflow-y: auto; margin-bottom: 10px; }
+#ai-input { border: none; background: var(--bg-secondary); border-radius: 5px; padding: 5px; color: var(--text); }
+.hidden { display: none; }
+.window { position: absolute; background: var(--bg-secondary); border-radius: 10px; box-shadow: var(--shadow); min-width: 400px; min-height: 300px; display: flex; flex-direction: column; }
+.window-header { background: var(--accent); padding: 10px; cursor: move; display: flex; justify-content: space-between; border-radius: 10px 10px 0 0; }
+.window-body { flex: 1; padding: 10px; overflow: auto; }
+/* Animations */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.window { animation: fadeIn 0.3s; }
+/* Responsive */
+@media (max-width: 768px) { .dock { bottom: 10px; flex-wrap: wrap; } .ai-chat { width: 90%; right: 5%; } }
+/* Theme Toggle */
+.theme-toggle { cursor: pointer; }

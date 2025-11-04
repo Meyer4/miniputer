@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MinePuter – Free Web OS</title>
+    <link rel="manifest" href="manifest.json"> <!-- Add for PWA -->
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/gsap@3.12.5/dist/gsap.min.js"></script> <!-- Animations -->
+    <script src="https://unpkg.com/xterm@5.3.0/lib/xterm.js"></script> <!-- Terminal -->
+    <link rel="stylesheet" href="https://unpkg.com/xterm@5.3.0/css/xterm.css">
+    <script src="https://unpkg.com/monaco-editor@0.44.0/min/vs/loader.js"></script> <!-- Editor -->
+</head>
+<body>
+    <div id="desktop" class="desktop">
+        <div id="wallpaper"></div>
+        <div id="dock" class="dock">
+            <img src="assets/icons/terminal.svg" class="app-icon" data-app="terminal" title="Terminal">
+            <img src="assets/icons/browser.svg" class="app-icon" data-app="browser" title="Browser">
+            <!-- Add more icons here -->
+            <div id="ai-btn" class="app-icon ai">🤖</div>
+        </div>
+        <div id="taskbar" class="taskbar">
+            <div id="start-menu" class="start-menu">MinePuter</div>
+            <div id="ai-chat" class="ai-chat hidden">
+                <div id="ai-output"></div>
+                <input id="ai-input" placeholder="Ask AI anything...">
+            </div>
+        </div>
+        <div id="window-container"></div> <!-- Apps open here -->
+    </div>
+    <script src="js/main.js"></script>
+    <script src="js/ai.js"></script>
+    <script src="js/apps/terminal.js"></script>
+    <script src="js/apps/browser.js"></script>
+    <script src="js/apps/editor.js"></script>
+</body>
+</html>
